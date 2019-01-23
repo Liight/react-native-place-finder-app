@@ -1,3 +1,18 @@
+// import { Navigation } from 'react-native-navigation';
+
+// import AuthScreen from './src/screens/Auth';
+
+// // Register Screens
+// Navigation.registerComponent("react-native-place-finder-app.AuthScreen", () => AuthScreen);
+
+// // Start a App
+// Navigation.startSingleScreenApp({
+//   screen: {
+//     screen: "react-native-place-finder-app.AuthScreen",
+//     title: "Login"
+//   }
+// })
+
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
 import { connect } from 'react-redux';
