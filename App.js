@@ -1,9 +1,13 @@
 import { Navigation } from 'react-native-navigation';
 
 import AuthScreen from './src/screens/Auth/Auth';
+import SharePlaceScreen from './src/screens/SharePlace/SharePlace';
+import FindPlaceScreen from './src/screens/FindPlace/FindPlace';
 
 // Register Screens
 Navigation.registerComponent("react-native-place-finder-app.AuthScreen", () => AuthScreen);
+Navigation.registerComponent("react-native-place-finder-app.SharePlaceScreen", () => SharePlaceScreen);
+Navigation.registerComponent("react-native-place-finder-app.FindPlaceScreen", () => FindPlaceScreen);
 
 // Start a App
 Navigation.startSingleScreenApp({
