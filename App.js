@@ -5,8 +5,9 @@ import AuthScreen from './src/screens/Auth/Auth';
 import SharePlaceScreen from './src/screens/SharePlace/SharePlace';
 import FindPlaceScreen from './src/screens/FindPlace/FindPlace';
 import PlaceDetailsScreen from './src/screens/PlaceDetail/PlaceDetail';
-import configureStore from './src/store/configureStore';
+import SideDrawerScreen from './src/screens/SideDrawer/SideDrawer';
 
+import configureStore from './src/store/configureStore';
 const store = configureStore();
 
 // Register Screens
@@ -14,6 +15,7 @@ Navigation.registerComponent("react-native-place-finder-app.AuthScreen", () => A
 Navigation.registerComponent("react-native-place-finder-app.SharePlaceScreen", () => SharePlaceScreen, store, Provider);
 Navigation.registerComponent("react-native-place-finder-app.FindPlaceScreen", () => FindPlaceScreen, store, Provider);
 Navigation.registerComponent("react-native-place-finder-app.PlaceDetailsScreen", () => PlaceDetailsScreen, store, Provider);
+Navigation.registerComponent("react-native-place-finder-app.SideDrawerScreen", () => SideDrawerScreen);
 
 // Start a App
 Navigation.startSingleScreenApp({
