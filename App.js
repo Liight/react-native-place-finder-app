@@ -13,7 +13,7 @@ const store = configureStore();
 Navigation.registerComponent("react-native-place-finder-app.AuthScreen", () => AuthScreen, store, Provider);
 Navigation.registerComponent("react-native-place-finder-app.SharePlaceScreen", () => SharePlaceScreen, store, Provider);
 Navigation.registerComponent("react-native-place-finder-app.FindPlaceScreen", () => FindPlaceScreen, store, Provider);
-Navigation.registerComponent("react-native-place-finder-app.PlaceDetailsScreen", () => PlaceDetailsScreen);
+Navigation.registerComponent("react-native-place-finder-app.PlaceDetailsScreen", () => PlaceDetailsScreen, store, Provider);
 
 // Start a App
 Navigation.startSingleScreenApp({
