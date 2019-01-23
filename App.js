@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import AuthScreen from './src/screens/Auth/Auth';
 import SharePlaceScreen from './src/screens/SharePlace/SharePlace';
 import FindPlaceScreen from './src/screens/FindPlace/FindPlace';
+import PlaceDetailsScreen from './src/screens/PlaceDetail/PlaceDetail';
 import configureStore from './src/store/configureStore';
 
 const store = configureStore();
@@ -12,6 +13,7 @@ const store = configureStore();
 Navigation.registerComponent("react-native-place-finder-app.AuthScreen", () => AuthScreen, store, Provider);
 Navigation.registerComponent("react-native-place-finder-app.SharePlaceScreen", () => SharePlaceScreen, store, Provider);
 Navigation.registerComponent("react-native-place-finder-app.FindPlaceScreen", () => FindPlaceScreen, store, Provider);
+Navigation.registerComponent("react-native-place-finder-app.PlaceDetailsScreen", () => PlaceDetailsScreen);
 
 // Start a App
 Navigation.startSingleScreenApp({
