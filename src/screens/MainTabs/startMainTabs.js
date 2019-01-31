@@ -1,13 +1,14 @@
 import { Navigation } from 'react-native-navigation';
+import { Platform } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const startTabs = () => {
     // Takes a set of promises and returns an array after all have resolved
     Promise.all([
         // Icons return a promise 
-        Icon.getImageSource("md-map", 30),
-        Icon.getImageSource("ios-share-alt", 30),
-        Icon.getImageSource("ios-menu", 30)
+        Icon.getImageSource(Platform.OS === 'android' ? "md-map" : "ios-map", 30),
+        Icon.getImageSource(Platform.OS === 'android' ? "md-share-alt" : "ios-share-alt", 30),
+        Icon.getImageSource(Platform.OS === 'android' ? "md-menu" : "ios-menu", 30)
     ]).then(sources => {
         Navigation.startTabBasedApp({
             tabs: [
@@ -41,7 +42,7 @@ const startTabs = () => {
                         ]
                     }
                 }
-        
+
             ],
             drawer: {
                 left: {
@@ -52,6 +53,6 @@ const startTabs = () => {
     })
 }
 
-    
+
 
 export default startTabs;
