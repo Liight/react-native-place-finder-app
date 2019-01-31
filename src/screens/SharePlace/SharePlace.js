@@ -3,10 +3,13 @@ import { View, Text, TextInput, Button, StyleSheet, ScrollView, Image } from 're
 import { connect } from 'react-redux';
 
 import { addPlace } from '../../store/actions/index';
-import DefaultInput from '../../components/UI/DefaultInput/DefaultInput';
+// import DefaultInput from '../../components/UI/DefaultInput/DefaultInput';
+import PlaceInput from '../../components/PlaceInput/PlaceInput';
 import MainText from '../../components/UI/MainText/MainText';
 import HeadingText from '../../components/UI/HeadingText/HeadingText';
 import imagePlaceholder from '../../assets/image.jpg';
+import PickLocation from '../../components/PickLocation/PickLocation';
+import PickImage from '../../components/PickImage/PickImage';
 
 class SharePlaceScreen extends Component {
 
@@ -36,21 +39,11 @@ class SharePlaceScreen extends Component {
             <ScrollView>
             <View style={styles.container}>
             <MainText><HeadingText>Share a place with us!</HeadingText></MainText>
-            <View style={styles.placeholder}>
-                <Image source={imagePlaceholder} style={styles.previewImage}/>
-            </View>
-            <View style={styles.button}>
-                <Button title="Pick Image" />
-            </View>
             
-            <View style={styles.placeholder}>
-                <Text>MAP</Text>
-            </View>
-            <View style={styles.button}>
-                <Button title="Locate Me" />
-            </View>
+            <PickImage />
+            <PickLocation />
             
-            <DefaultInput placeholder="Place Name" />
+            <PlaceInput />
             <View style={styles.button}>
                 <Button title="Share the Place!" />
             </View>
