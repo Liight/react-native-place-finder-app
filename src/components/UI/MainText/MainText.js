@@ -7,7 +7,7 @@ const mainText = props => (
 
 const styles = StyleSheet.create({
     mainText: {
-        color: "white",
+        color: "black",
         backgroundColor: "transparent"
     }
 });
