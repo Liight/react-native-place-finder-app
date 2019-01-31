@@ -44,11 +44,17 @@ const startTabs = () => {
                 }
 
             ],
+            tabsStyle: {
+                tabBarSelectedButtonColor: "orange"
+            },
             drawer: {
                 left: {
                     screen: "react-native-place-finder-app.SideDrawerScreen"
                 }
-            }
+            },
+            appStyle: {
+                tabBarSelectedButtonColor: "orange"
+            },
         })
     })
 }
