@@ -19,32 +19,69 @@ import headingText from "../../components/UI/HeadingText/HeadingText";
 
 class AuthScreen extends Component {
   state = {
-    viewMode: Dimensions.get('window').height > 500 ? 'portrait' : "landscape"
-  }
-
-  constructor(props){
-    super(props);
-    // Needs to be detached to avoid a memory leak
-    Dimensions.addEventListener("change", this.updateStyles)
+    viewMode: Dimensions.get("window").height > 500 ? "portrait" : "landscape",
+    controls: {
+      email: {
+        value: "",
+        valid: false,
+        validationRules: {
+          isEmail: true
+        }
+      },
+      password: {
+        value: "",
+        valid: false,
+        validationRules: {
+          minLength: 6
+        }
+      },
+      confirmPassword: {
+        value: "",
+        valid: false,
+        validationRules: {
+          equalTo: "password"
+        }
+      }
+    }
   };
 
-  componentWillUnmount(){
-    Dimensions.removeEventListener("change", this.updateStyles)
+  constructor(props) {
+    super(props);
+    // Needs to be detached to avoid a memory leak
+    Dimensions.addEventListener("change", this.updateStyles);
   }
 
-   updateStyles = (dims) => {
-     this.setState({
-       viewMode: dims.window.height > 500 ? "portrait" : "landscape"
-     })
-   };
- 
+  componentWillUnmount() {
+    Dimensions.removeEventListener("change", this.updateStyles);
+  }
+
+  updateStyles = dims => {
+    this.setState({
+      viewMode: dims.window.height > 500 ? "portrait" : "landscape"
+    });
+  };
+
   loginHandler = () => {
     startMainTabs();
   };
 
+  updateInputState = (key, value) => {
+    this.setState(prevState => {
+      return {
+        controls: {
+          ...prevState.controls,
+          [key]: {
+            ...prevState.controls[key],
+            value: value
+          }
+        }
+      }
+    })
+  };
+
   render() {
     let headingText = null;
-    if (this.state.viewMode === 'portrait') {
+    if (this.state.viewMode === "portrait") {
       headingText = (
         <MainText>
           <HeadingText>Please Log In</HeadingText>
@@ -62,27 +99,42 @@ class AuthScreen extends Component {
             <DefaultImport
               style={styles.input}
               placeholder="Your E-Mail Address"
+              value={this.state.controls.email.value}
+              onChangeText={(val) => this.updateInputState('email', val)}
             />
-            <View style={
-              this.state.viewMode === "portrait" 
-              ? styles.portraitPasswordContainer 
-              : styles.landscapePasswordContainer
-              }>
-              <View style={
-                this.state.viewMode === "portrait" 
-                ? styles.portraitPasswordWrapper 
-                : styles.landscapePasswordWrapper
-                }>
-                <DefaultImport style={styles.input} placeholder="Password" />
+            <View
+              style={
+                this.state.viewMode === "portrait"
+                  ? styles.portraitPasswordContainer
+                  : styles.landscapePasswordContainer
+              }
+            >
+              <View
+                style={
+                  this.state.viewMode === "portrait"
+                    ? styles.portraitPasswordWrapper
+                    : styles.landscapePasswordWrapper
+                }
+              >
+                <DefaultImport
+                  style={styles.input}
+                  placeholder="Password"
+                  value={this.state.controls.password.value}
+                  onChangeText={(val) => this.updateInputState('password', val)}
+                />
               </View>
-              <View style={
-                this.state.viewMode === "portrait" 
-                ? styles.portraitPasswordWrapper 
-                : styles.landscapePasswordWrapper
-                }>
+              <View
+                style={
+                  this.state.viewMode === "portrait"
+                    ? styles.portraitPasswordWrapper
+                    : styles.landscapePasswordWrapper
+                }
+              >
                 <DefaultImport
                   style={styles.input}
                   placeholder="Confirm Password"
+                  value={this.state.controls.confirmPassword.value}
+                  onChangeText={(val) => this.updateInputState('confirmPassword', val)}
                 />
               </View>
             </View>
