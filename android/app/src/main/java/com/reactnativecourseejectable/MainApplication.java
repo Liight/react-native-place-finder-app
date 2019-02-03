@@ -8,6 +8,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.oblador.vectoricons.VectorIconsPackage;
+import com.airbnb.android.react.maps.MapsPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -28,8 +29,14 @@ public class MainApplication extends NavigationApplication {
     // No need to add RnnPackage and MainReactPackage
     return Arrays.<ReactPackage>asList(
         // eg. new VectorIconsPackage()
-        new VectorIconsPackage());
+        new VectorIconsPackage(),
+        // Google Maps
+        new MainReactPackage(),
+        new MapsPackage()
+        );
+        
   }
+
 
   @Override
   public List<ReactPackage> createAdditionalReactPackages() {
@@ -40,6 +47,7 @@ public class MainApplication extends NavigationApplication {
   public String getJSMainModuleName() {
     return "index";
   }
+
 }
 
 // Previous implementation to react navigation
