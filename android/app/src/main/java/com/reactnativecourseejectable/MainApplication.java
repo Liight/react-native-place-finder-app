@@ -7,8 +7,10 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.airbnb.android.react.maps.MapsPackage;
+import com.imagepicker.ImagePickerPackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +18,7 @@ import java.util.List;
 // React Native 
 import com.reactnativenavigation.NavigationApplication;
 
-public class MainApplication extends NavigationApplication {
+public class MainApplication extends NavigationApplication implements ReactApplication{
 
   @Override
   public boolean isDebug() {
@@ -32,7 +34,9 @@ public class MainApplication extends NavigationApplication {
         new VectorIconsPackage(),
         // Google Maps
         new MainReactPackage(),
-        new MapsPackage()
+        new MapsPackage(),
+        // Image Picker
+        new ImagePickerPackage()
         );
         
   }
