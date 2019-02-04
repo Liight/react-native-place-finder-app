@@ -1,30 +1,102 @@
-import { ADD_PLACE, DELETE_PLACE } from './actionTypes';
+import { SET_PLACES, REMOVE_PLACE } from './actionTypes';
+import { uiStartLoading, uiStopLoading } from './index';
 
 export const addPlace = (placeName, location, image) => {
+    const baseURL = "https://place-finder-22e42.firebaseio.com/";
+    const databaseObject = "places.json"; // '.json' is a firebase requirement
+    return dispatch => {
+        dispatch(uiStartLoading());
+        fetch(baseURL + databaseObject, {
+            method: "POST",
+            body: JSON.stringify({
+                image: image.base64
+            })
+        })
+        .catch(err => {
+            console.log(err);
+            alert("Something went wrong, please try again!");
+            dispatch(uiStopLoading());
+        })
+        .then(res => res.json())
+        .then(parsedRes => {
+            const placeData = {
+                name: placeName,
+                location: location,
+                image: parsedRes.imageUrl
+            };
+            return fetch("https://place-finder-22e42.firebaseio.com/places.json", {
+                method: "POST",
+                body: JSON.stringify(placeData)
+            })
+        })  
+        .catch(err => {
+            console.log(err);
+            alert("Something went wrong, please try again!");
+            dispatch(uiStopLoading());
+        })
+        .then(res => res.json())
+        .then(parsedRes => {
+            console.log(parsedRes);
+            dispatch(uiStopLoading());
+        });
+    };
+};
+
+export const getPlaces = () => {
+    const baseURL = "https://place-finder-22e42.firebaseio.com/";
+    const databaseObject = "places.json"; // '.json' is a firebase requirement
+    return dispatch => {
+        fetch(baseURL + databaseObject)
+        .catch(err => {
+            alert("Something went wrong, sorry :/");
+            console.log(err);
+        })
+        .then(res => res.json())
+        .then(parsedRes => {
+            const places = [];
+            for (let key in parsedRes) {
+                places.push({
+                    ...parsedRes[key],
+                    image: {
+                        uri: parsedRes[key].image
+                    },
+                    key: key
+                });
+            }
+            dispatch(setPlaces(places));
+        });
+    };
+};
+
+export const setPlaces = places => {
     return {
-        type: ADD_PLACE,
-        placeName: placeName,
-        location: location,
-        image: image
+        type: SET_PLACES,
+        places: places
     };
 };
 
 export const deletePlace = (key) => {
-    return {
-        type: DELETE_PLACE,
-        placeKey: key
-    };
+    return dispatch => {
+        dispatch(removePlace(key))
+        const baseURL = "https://place-finder-22e42.firebaseio.com/";
+        const databaseObject = "places/"+key+".json"; // '.json' is a firebase requirement
+        fetch(baseURL + databaseObject, {
+            method: "DELETE"
+        })
+        .catch(err => {
+            alert("Something went wrong, sorry :/");
+            console.log(err);
+        })
+        .then(res => res.json())
+        .then(parsedRes => {
+            console.log("Done!")
+        })
+    }
 };
 
-// export const selectPlace = (key) => {
-//     return {
-//         type: SELECT_PLACE,
-//         placeKey: key
-//     };
-// };
-
-// export const deselectPlace = () => {
-//     return {
-//         type: DESELECT_PLACE
-//     };
-// };
+export const removePlace = key => {
+    return {
+        type: REMOVE_PLACE,
+        key: key
+    }
+};
