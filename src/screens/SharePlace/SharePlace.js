@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, ScrollView, Image, ActivityIndicator } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, ScrollView, Image, ActivityIndicator, KeyboardAvoidingView } from 'react-native';
 import { connect } from 'react-redux';
 
 import { addPlace } from '../../store/actions/index';
@@ -119,6 +119,8 @@ class SharePlaceScreen extends Component {
         submitButton = <ActivityIndicator />
       }
         return (
+          <KeyboardAvoidingView>
+          <View>
           <ScrollView>
             <View style={styles.container}>
               <MainText>
@@ -135,6 +137,8 @@ class SharePlaceScreen extends Component {
               </View>
             </View>
           </ScrollView>
+          </View>
+          </KeyboardAvoidingView>
         );
       }
     }
