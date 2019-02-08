@@ -32,6 +32,15 @@ class FindPlaceScreen extends Component {
   }
 
   onNavigatorEvent = event => {
+    console.log(event);
+    if(event.type === "ScreenChangedEvent"){
+      if(event.id === "willAppear"){
+        this.props.onLoadPlaces();
+        // this.setState({
+        //   placesLoaded: false
+        // });
+      }
+    }
     if (event.type === "NavBarButtonPress") {
       if (event.id === "sideDrawerToggle") {
         this.props.navigator.toggleDrawer({
