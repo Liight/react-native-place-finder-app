@@ -1,3 +1,9 @@
-import './App';
+import App from "./App";
 
-App();
+Navigation.startSingleScreenApp({
+    screen: {
+      screen: "react-native-place-finder-app.AuthScreen",
+      title: "Login"
+    }
+  });
+  
