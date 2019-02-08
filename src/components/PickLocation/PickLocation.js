@@ -56,7 +56,6 @@ class PickLocation extends Component {
             this.pickLocationHandler(coordsEvent);
         },
         err => {
-            console.log(err);
             alert("Fetching the position failed, please pick one manually");
         });
     }
@@ -71,10 +70,9 @@ class PickLocation extends Component {
             <MapView 
                     initialRegion={this.state.focusedLocation}
                     region={this.state.locationChosen ? this.state.focusedLocation : null}
-                    // region={this.state.focusedLocation}
                     style={styles.map}
                     onPress={this.pickLocationHandler}
-                    ref={(ref) => {this.map = ref}} // This creates a property in this class with a reference to this object
+                    ref={(ref) => {this.map = ref}} 
             >{marker}</MapView>
             <View style={styles.button}>
                 <Button title="Locate Me" onPress={this.getLocationHandler}/>

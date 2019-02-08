@@ -31,7 +31,6 @@ export const addPlace = (placeName, location, image) => {
         );
       })
       .catch(err => {
-        console.log(err);
         alert("Something went wrong, please try again!");
         dispatch(uiStopLoading());
       })
@@ -65,12 +64,12 @@ export const addPlace = (placeName, location, image) => {
           }
         })
         .then(parsedRes => {
-          console.log(parsedRes);
+          //console.log(parsedRes);
           dispatch(uiStopLoading());
           dispatch(placeAdded());
         })
         .catch(err => {
-          console.log(err);
+          //console.log(err);
           alert("Something went wrong, please try again!");
           dispatch(uiStopLoading());
         });
@@ -117,7 +116,7 @@ export const getPlaces = () => {
         })
         .catch(err => {
             alert("Something went wrong, sorry :/ GetPlaces");
-            console.log(err);
+            //console.log(err);
         })
     };
 };
@@ -155,11 +154,11 @@ export const deletePlace = key => {
           }
         })
         .then(parsedRes => {
-          console.log("Done!");
+          //console.log("Done!");
         })
         .catch(err => {
           alert("Something went wrong, sorry :/");
-          console.log(err);
+          //console.log(err);
         });
     };
   };

@@ -31,7 +31,6 @@ export const tryAuth = (authData, authMode) => {
       }
     })
       .catch(err => {
-        console.log(err);
         alert("Authentication failed, please try again!");
         dispatch(uiStopLoading());
       })
@@ -124,7 +123,6 @@ export const authGetToken = () => {
           .then(res => res.json())
           .then(parsedRes => {
             if (parsedRes.id_token) {
-              console.log("Refresh token worked!");
               dispatch(
                 authStoreToken(
                   parsedRes.id_token,

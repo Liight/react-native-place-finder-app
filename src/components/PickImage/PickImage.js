@@ -23,7 +23,6 @@ class PickImage extends Component {
             if(res.didCancel){
                 console.log("User cancelled")
             } else if (res.error){
-                console.log("Error", res.error)
             } else {
                 this.setState({
                     pickedImage: { uri: res.uri }

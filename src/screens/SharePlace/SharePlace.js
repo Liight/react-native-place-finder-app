@@ -53,7 +53,6 @@ class SharePlaceScreen extends Component {
       componentDidUpdate(){
         if(this.props.placeAdded){
           this.props.navigator.switchToTab({tabIndex: 0})
-          // this.props.onStartAddPlace();
         }
       };
 
@@ -126,7 +125,6 @@ class SharePlaceScreen extends Component {
         this.reset();
         this.imagePicker.reset();
         this.locationPicker.reset();
-        // this.props.navigator.switchToTab({tabIndex: 0});
     };
 
     render() {
