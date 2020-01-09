@@ -78,7 +78,8 @@ class PlaceDetail extends Component {
             <Text style={styles.placeName}>{this.props.selectedPlace.name}</Text>
           </View>
 
-          <View>
+          <View style={styles.deleteContainer}>
+          <Text>Delete {this.props.selectedPlace.name}</Text>
             <TouchableOpacity onPress={this.placeDeletedHandler}>
               <View style={styles.deleteButton}>
                 <Icon
@@ -126,6 +127,12 @@ const styles = StyleSheet.create({
   },
   subContainer: {
     flex: 1
+  }, 
+  deleteContainer: {
+    display: "flex",
+    flex:1,
+    alignItems: "center",
+    justifyContent: "flex-end"
   }
 });
 
