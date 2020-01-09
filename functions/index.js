@@ -15,7 +15,7 @@ admin.initializeApp({
   credential: admin.credential.cert(require("./place-finder.json"))
 });
 
-// // Create and Deploy Your First Cloud Functions
+// // Create and Deploy Your Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
 exports.storeImage = functions.https.onRequest((request, response) => {

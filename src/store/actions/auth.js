@@ -4,9 +4,11 @@ import { Navigation } from "react-native-navigation";
 import { TRY_AUTH, AUTH_SET_TOKEN, AUTH_REMOVE_TOKEN } from "./actionTypes";
 import { uiStartLoading, uiStopLoading } from "./index";
 import startMainTabs from "../../screens/MainTabs/startMainTabs";
-import App from "../../../App";
+// import App from "../../../App";
 
-const API_KEY = "YOUR_API_KEY"
+import * as secrets from '../../secret/secret';
+
+const API_KEY = secrets.API_KEY;
 
 export const tryAuth = (authData, authMode) => {
   return dispatch => {
@@ -37,9 +39,8 @@ export const tryAuth = (authData, authMode) => {
       .then(res => res.json())
       .then(parsedRes => {
         dispatch(uiStopLoading());
-        console.log(parsedRes);
         if (!parsedRes.idToken) {
-          alert("Authentication failed, please try again!");
+            alert("Authentication failed, please try again!");
         } else {
           dispatch(
             authStoreToken(
