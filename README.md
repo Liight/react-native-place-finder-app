@@ -1,4 +1,4 @@
-## Place Finder App w/ React-Native
+## Vistagram App w/ React-Native
 
 ### App Description
 
