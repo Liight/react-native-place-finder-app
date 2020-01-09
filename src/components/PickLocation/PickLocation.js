@@ -8,6 +8,10 @@ class PickLocation extends Component {
         this.reset();
     }
 
+    componentDidMount(){
+        this.getLocationHandler();
+    }
+
     reset = () => {
         this.setState({
             focusedLocation: {
@@ -74,9 +78,9 @@ class PickLocation extends Component {
                     onPress={this.pickLocationHandler}
                     ref={(ref) => {this.map = ref}} 
             >{marker}</MapView>
-            <View style={styles.button}>
+            {/* <View style={styles.button}>
                 <Button title="Locate Me" onPress={this.getLocationHandler}/>
-            </View>
+            </View> */}
             </View>
         );
     }
