@@ -14,10 +14,13 @@ class PickImage extends Component {
     }
 
     pickImageHandler = () => {
-        ImagePicker.showImagePicker({
-            title: "Pick an Image",
-            maxWidth: 800,
-            maxHeight: 600
+        // ImagePicker.showImagePicker({
+        //     title: "Pick an Image",
+        //     maxWidth: 800,
+        //     maxHeight: 600
+        // },
+        ImagePicker.launchCamera({
+            title: "",
         },
         res => {
             if(res.didCancel){
@@ -39,7 +42,7 @@ class PickImage extends Component {
                 <Image source={this.state.pickedImage} style={styles.previewImage}/>
             </View>
             <View style={styles.button}>
-                <Button title="Pick Image" onPress={this.pickImageHandler}/>
+                <Button title="Take a photo" onPress={this.pickImageHandler}/>
             </View>
             </View>
         );
