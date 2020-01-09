@@ -129,7 +129,7 @@ class SharePlaceScreen extends Component {
 
     render() {
       let submitButton = <Button
-      title="Share the Place!"
+      title="Share the Vista!"
       onPress={this.placeAddedHandler}
       disabled={
         !this.state.controls.placeName.valid 
@@ -146,7 +146,7 @@ class SharePlaceScreen extends Component {
           <ScrollView>
             <View style={styles.container}>
               <MainText>
-                <HeadingText>Share a Place with us!</HeadingText>
+                <HeadingText>Share a Vista with us!</HeadingText>
               </MainText>
               <PickImage 
                 onImagePicked={this.imagePickedHandler} 

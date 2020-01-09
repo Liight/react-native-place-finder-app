@@ -14,8 +14,8 @@ const startTabs = () => {
             tabs: [
                 {
                     screen: "react-native-place-finder-app.FindPlaceScreen",
-                    label: "Find Place",
-                    title: "Find Place",
+                    label: "Find Vista",
+                    title: "Find Vista",
                     icon: sources[0],
                     navigatorButtons: {
                         leftButtons: [
@@ -29,8 +29,8 @@ const startTabs = () => {
                 },
                 {
                     screen: "react-native-place-finder-app.SharePlaceScreen",
-                    label: "Share Place",
-                    title: "Share Place",
+                    label: "Share Vista",
+                    title: "Share Vista",
                     icon: sources[1],
                     navigatorButtons: {
                         leftButtons: [

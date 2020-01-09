@@ -99,7 +99,7 @@ class PlaceDetail extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: 22
+    margin: 22,
   },
   portraitContainer: {
     flexDirection: "column"
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   placeDetailContainer: {
-    flex: 2
+    flex: 3
   },
   placeImage: {
     height: "100%",
