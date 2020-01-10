@@ -7,7 +7,7 @@ export const startAddPlace = () => {
   }
 }
 
-export const addPlace = (placeName, location, image) => {
+export const addPlace = (placeName, location, image, country) => {
     return dispatch => {
       let authToken;
       dispatch(uiStartLoading());
@@ -46,7 +46,8 @@ export const addPlace = (placeName, location, image) => {
           name: placeName,
           location: location,
           image: parsedRes.imageUrl,
-          imagePath: parsedRes.imagePath 
+          imagePath: parsedRes.imagePath,
+          country: country
         };
           return fetch(
             "https://place-finder-22e42.firebaseio.com/places.json?auth=" + authToken,

@@ -33,7 +33,6 @@ public class MainActivity extends SplashActivity {
 
         textView.setTextColor(Color.parseColor("#fa923f"));
         textView.setText("Vistagram");
-        textView.setText("Live");
         textView.setGravity(Gravity.CENTER);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 40);
 
