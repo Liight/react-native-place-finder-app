@@ -29,6 +29,9 @@ class FindPlaceScreen extends Component {
 
   componentDidMount(){
       this.props.onLoadPlaces();
+      setTimeout(() => {
+        this.placesSearchHandler();
+      }, 1000)
   }
 
   onNavigatorEvent = event => {

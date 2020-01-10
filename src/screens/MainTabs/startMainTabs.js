@@ -14,8 +14,8 @@ const startTabs = () => {
             tabs: [
                 {
                     screen: "react-native-place-finder-app.FindPlaceScreen",
-                    label: "Find Vista",
-                    title: "Find Vista",
+                    label: "My Vistas",
+                    title: "My Vistas",
                     icon: sources[0],
                     navigatorButtons: {
                         leftButtons: [
