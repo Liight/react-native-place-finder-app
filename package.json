@@ -6,7 +6,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "ios": "react-native run-ios",
-    "android": "react-native run-android"
+    "android": "react-native run-android",
+    "clean-and-build": "cd android && gradlew clean && cd.. && react-native run-android"
   },
   "dependencies": {
     "react": "16.6.3",

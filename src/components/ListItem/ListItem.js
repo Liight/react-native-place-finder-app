@@ -16,7 +16,7 @@ const listItem = (props) => {
         <View style={styles.listItem}>
           <View style={styles.topRow}>
             <Text style={styles.topRowText}>{props.placeName}</Text>
-            <Text>{props.placeCountry}</Text>
+            <Text style={styles.topRowText}>{props.placeCountry}</Text>
           </View>
           <View style={styles.bottomRow}>
             <Image
@@ -52,24 +52,33 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "auto",
     padding: 10,
-    backgroundColor: "#eee",
-    marginBottom: 5,
+    paddingBottom: 20,
+    backgroundColor: "#F9F9F9",
+    marginBottom: 0,
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
+    borderRadius: 0,
+    borderWidth: 0.5,
+    borderColor: "orange"
   },
   topRow: {
     display: "flex",
     width: "100%",
+    height: 30,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-evenly"
+    justifyContent: "center"
   },
   topRowText: {
     display: "flex",
     width: "50%",
-    flexDirection: "row",
+    height: "100%",
+    flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    textAlign: "center",
+    color: 'orange',
+    fontSize: 16
   },
   bottomRow: {
     display: "flex",
