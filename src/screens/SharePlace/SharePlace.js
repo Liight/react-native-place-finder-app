@@ -8,7 +8,8 @@ import {
   ScrollView,
   Image,
   ActivityIndicator,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  TouchableOpacity
 } from "react-native";
 import { connect } from "react-redux";
 
@@ -193,16 +194,20 @@ class SharePlaceScreen extends Component {
   };
 
   render() {
+    let checkValidity = !this.state.controls.placeName.valid ||
+      !this.state.controls.location.valid ||
+      !this.state.controls.image.valid;
+    let checkViewStyles = checkValidity ? styles.disabledView : styles.buttonView
+    let checkTOStyles = checkValidity ? styles.disabledTO : styles.buttonTO
+    let checkTextStyles = checkValidity ? styles.disabledText : styles.buttonText
     let submitButton = (
-      <Button
-        title="Share the Vista!"
-        onPress={this.placeAddedHandler}
-        disabled={
-          !this.state.controls.placeName.valid ||
-          !this.state.controls.location.valid ||
-          !this.state.controls.image.valid
-        }
-      />
+      <TouchableOpacity
+        style={checkTOStyles}
+        onPress={
+          this.placeAddedHandler
+          }>
+        <Text style={[styles.buttonText, checkTextStyles]}>Share the Vista!</Text>
+      </TouchableOpacity>
     );
     if (this.props.isLoading) {
       submitButton = <ActivityIndicator />;
@@ -227,7 +232,7 @@ class SharePlaceScreen extends Component {
                 placeData={this.state.controls.placeName}
                 onChangeText={this.placeNameChangedHandler}
               />
-              <View style={styles.button}>{submitButton}</View>
+              <View style={[styles.buttonView, checkViewStyles]}>{submitButton}</View>
             </View>
           </ScrollView>
         </View>
@@ -248,8 +253,42 @@ const styles = StyleSheet.create({
     width: "80%",
     height: 150
   },
-  button: {
-    margin: 8
+  buttonView: {
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: 'center',
+    margin: 0,
+    padding: 10,
+    width: "90%",
+    height: "auto",
+    borderRadius: 25,
+    borderWidth: 0.5,
+    borderColor: "orange",
+    color: "orange",
+  },
+  buttonTO: {
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    margin: 0,
+    width: "90%",
+    height: 30,
+    padding: 0,
+  },
+  buttonText: {
+    fontSize: 20,
+    color: "orange"
+  },
+  disabledView: {
+    backgroundColor: "#EEEEEE",
+    color: "#A1A1A1",
+    borderColor: "#A1A1A1",
+  },
+  disabledTO: {
+    backgroundColor: "#EEEEEE",
+  },
+  disabledText: {
+    color: "#A1A1A1",
   },
   previewImage: {
     width: "100%",

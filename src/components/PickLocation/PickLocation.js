@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     map: {
-       width:"100%",
+       width:"90%",
        height: 250
     },
     button: {
