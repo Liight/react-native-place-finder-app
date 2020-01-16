@@ -7,7 +7,8 @@
     "test": "jest",
     "ios": "react-native run-ios",
     "android": "react-native run-android",
-    "clean-and-build": "cd android && gradlew clean && cd.. && react-native run-android"
+    "clean-and-build": "cd android && gradlew clean && cd.. && react-native run-android",
+    "clean": "cd android && gradlew clean && cd.."
   },
   "dependencies": {
     "react": "16.6.3",

@@ -143,11 +143,24 @@ class SharePlaceScreen extends Component {
   };
 
   placeAddedHandler = () => {
+
+    // Validation Check
+    const checkStateForValidation =
+      !this.state.controls.placeName.valid ||
+      !this.state.controls.location.valid ||
+      !this.state.controls.image.valid;
+    if (checkStateForValidation) {
+      // alert("True"+checkStateForValidation)
+    } else {
+      // alert("False"+checkStateForValidation)m
+    }
+
     this.props.onAddPlace(
       this.state.controls.placeName.value,
       this.state.controls.location.value,
       this.state.controls.image.value,
       this.state.country
+
     );
     this.reset();
     this.imagePicker.reset();
