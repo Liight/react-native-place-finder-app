@@ -50,6 +50,24 @@ class PlaceDetail extends Component {
     this.props.onDeletePlace(this.props.selectedPlace.key);
     this.props.navigator.pop();
   };
+
+  // getPercentagesAsFloatHandler = () => {
+  //   let height = Dimensions.get('window').height;
+  //   let width = Dimensions.get('window').width;
+  //   let heightPercentage = height / 100;
+  //   let widthPercentage = width / 100;
+  //   return {
+  //     heightPercentage: heightPercentage,
+  //     widthPercentage: widthPercentage
+  //   }
+  // }
+
+  getOffsetsHandler = () => {
+    return {
+      offset: (Dimensions.get('window').height / 2) - (Dimensions.get('window').width / 2)
+    }
+  }
+
   render() {
     return (
       <View
@@ -73,12 +91,18 @@ class PlaceDetail extends Component {
             source={this.props.selectedPlace.image}
             style={{
               position: "absolute",
-              top: 115,
-              left: -136,
-              transform: [{ rotate: '90deg' }],
-              // alignSelf: "center",
-              width: Dimensions.get('window').height,
-              height: Dimensions.get('window').width,
+              width: Dimensions.get('window').height, // Landscape
+              height: Dimensions.get('window').width, // Landscape
+              transform: [
+                { translate: 
+                  [
+                    (-this.getOffsetsHandler().offset),
+                    (this.getOffsetsHandler().offset)
+                  ]
+                }, 
+                { rotate: "90deg" }
+                ],
+              
               }}
           />
         </Modal>
