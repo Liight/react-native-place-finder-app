@@ -43,10 +43,7 @@ buck-out/
 
 #secret
 /src/secret
-
-#private 
-functions/
-place-finder.json
+/functions/place-finder.json
 
 # fastlane
 #
